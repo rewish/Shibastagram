@@ -1,0 +1,212 @@
+// variable
+$bg-gradient:radial-gradient(bottom left, farthest-side, red, yellow, green)
+$color-background: #2C2822
+
+//animation
+@-webkit-keyframes nowloading
+  0%
+    top: 0
+  50%
+    top: -0.2em
+  100%
+    top: 0em
+
+.nowLoading
+  text-align: center
+  letter-spacing: 0.2em
+  
+  span
+    position: relative
+    -webkit-animation: nowloading 0.9s ease-out infinite
+
+  @for $i from 1 through 13
+    span:nth-child(#{$i})
+      -webkit-animation-delay: 0.25s * $i    
+
+// styles
+html,body,ul,li,p,h1
+  margin: 0
+  padding: 0
+  
+html
+  border-top: 5px solid $color-background
+  background: $color-background url(../img/bg.png) fixed
+
+body
+  font-family: 'Walter Turncoat', serif
+
+a
+  color: #fff
+
+img
+  border: 0
+      
+ul
+  list-style: none
+
+.header
+  position: fixed
+  bottom: 0
+  left: 36px
+  z-index: 2
+  
+  .logo
+    float: left
+
+  .name
+    position: absolute
+    bottom: 4px
+    left: 132px
+    font-size: 24px
+    color: #fff
+    font-weight: 100
+  
+  #logomark
+    width: 120px
+
+.wrapper
+  margin: 0 auto
+  padding-bottom: 160px
+  
+  .content
+    img
+      // visibility: hidden
+      width: 306px
+      height: 306px
+      
+    ul
+      overflow: hidden
+      text-align: center
+      
+    li
+      display: inline-block
+      *display: inline
+      *zoom: 1
+      padding: 5px
+      width: 306px
+      height: 306px
+      background: url(../img/placeholder.png) no-repeat center
+
+    p.nowLoading
+      margin-top: 40px
+      text-align: center
+      font-size: 1.8em
+      color: #FFF
+
+.footer-wrapper
+  position: fixed
+  bottom: 0
+  z-index: 1
+  width: 100%
+  padding: 0.5em
+  background-color: $color-background
+  color: #fff
+
+.footer
+  float: right
+  margin: 0 24px 0 auto
+  width: 60%
+
+  .share
+    position: relative
+    top: 0.1em
+    float: right
+    
+    li
+      float: right
+
+  .copyright
+    float: right
+    margin-left: 1em
+    
+// MediaQuery
+
+@media screen and (max-device-width: 768px)
+  a
+    text-decoration: none
+
+  .wrapper
+    .content
+      margin-top: 72px
+
+    .header
+      bottom: auto
+      top: 18px
+    
+      .name
+        bottom: auto
+        top: 0
+        left: 48px
+        font-size: 30px
+        
+      #logomark
+        width: 36px
+        
+  .footer-wrapper
+    bottom: auto
+    top: 0
+    
+    .copyright
+      margin-bottom: 8px
+    
+@media screen and (max-device-width: 480px)
+
+  .wrapper
+    .content
+      margin-top: 0
+      
+      img
+        // visibility: hidden
+        width: 150px
+        height: 150px
+        
+      li
+        width: 150px
+        height: 150px
+        
+    .header
+      position: static
+      margin-bottom: 24px
+      text-align: center
+      
+      .logo
+        float: none
+        display: inline
+        position: relative
+        top: 6px
+        margin-right: 6px
+        z-index: 99999
+    
+      .name
+        position: static
+        display: inline
+        font-size: 24px
+        color: #fff
+        font-weight: 100
+      
+  .footer-wrapper
+    top: 42px
+    width: 100%
+    padding: 0.5em
+    background-color: transparent
+    color: #fff
+  
+  .footer
+    float: none
+    margin: 0 24px 0 auto
+    width: auto
+  
+    .share
+      display: none
+      position: relative
+      top: 0.1em
+      float: none
+      
+      li
+        float: right
+        margin: 0
+  
+    .copyright
+      float: none
+      margin-bottom: 8px
+      text-align: center

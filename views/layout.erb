@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta charset="UTF-8">
+	<title>Shibastagram - 柴犬たくさん、しばすたぐらむ</title>
+	<meta property="og:title" content="" />
+	<meta property="og:type" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta property="fb:admins" content="" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Walter+Turncoat:regular" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png" />
+<% if request.env["SERVER_PORT"] == "4567"
+%>	<script src="/js/jquery-1.5.1.js"></script>
+	<script src="/js/application.js"></script>
+<% else
+%>	<script src="/js/jquery-1.5.1.min.js"></script>
+	<script src="/js/application.min.js"></script>
+<% end
+%></head>
+<body>
+<div class="wrapper">
+	<div class="header">
+		<p class="logo"><a href="#"><img src="/img/shiba_logo.png" id="logomark" /></a></p>
+		<h1 class="name">Shibastagram</h1>
+	</div>
+	<div class="content">
+<% lines = yield.split("\n"); lines.each do |line|
+%>		<%= line %>
+<% end %>	</div>
+</div>
+<div class="footer-wrapper">
+	<div class="footer">
+		<div class="footer-inner">
+			<p class="copyright"><small>Developed by @<a href="http://twitter.com/rewish">rewish</a>, Designed by @<a href="http://twitter.com/hiloki">hiloki</a></small></p>
+			<ul class="share">
+			    <li><a href="http://b.hatena.ne.jp/entry/http%3A%2F%2Fshiba.heroku.com%2F" class="hatena-bookmark-button" data-hatena-bookmark-title="Shibastagram%20-%20%E3%81%97%E3%81%B0%E3%81%99%E3%81%9F%E3%81%90%E3%82%89%E3%82%80" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script></li>
+			    <li><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshiba.heroku.com%2F&amp;layout=button_count&amp;show_faces=false&amp;width=90&amp;action=like&amp;colorscheme=light&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:20px;" allowTransparency="true"></iframe></li>
+			    <li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ja">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>
